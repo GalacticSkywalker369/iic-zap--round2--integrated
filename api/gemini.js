@@ -56,7 +56,7 @@ export default async function handler(req, res) {
       "You are an agricultural assistant helping Indian farmers with actionable, concise answers. Avoid hallucinations; say you don't know when unsure. Provide steps, numbers, and safety tips where relevant.";
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const result = await model.generateContent(`${systemPreamble}\n\nQuestion: ${userQuery}`);
     const response = await result.response;

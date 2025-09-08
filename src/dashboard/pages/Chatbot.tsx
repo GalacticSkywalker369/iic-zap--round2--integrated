@@ -55,13 +55,15 @@ const ChatbotPage: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("/api/gemini", {
+      const apiBase = ""; // same origin; when using vercel dev this will work
+      const res = await fetch(`${apiBase}/api/gemini`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: content }),
       });
       if (!res.ok) {
-        throw new Error(`Request failed: ${res.status}`);
+        const errText = await res.text().catch(() => "");
+        throw new Error(`Request failed: ${res.status} ${errText}`);
       }
       const data: { answer: string } = await res.json();
       const assistantMsg: ChatMessage = {
@@ -74,7 +76,7 @@ const ChatbotPage: React.FC = () => {
       const assistantMsg: ChatMessage = {
         id: `${Date.now()}-assistant-error`,
         role: "assistant",
-        content: "Sorry, I ran into an error fetching the answer. Please try again.",
+        content: `Sorry, I ran into an error fetching the answer. ${err?.message || ""}`.trim(),
       };
       setMessages((prev) => [...prev, assistantMsg]);
     } finally {
