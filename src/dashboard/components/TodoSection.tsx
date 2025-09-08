@@ -59,7 +59,7 @@ const TodoSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 brand-gradient">Farming Tasks & Reminders</h2>
+            <h2 className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-[#369042] via-[#a1cc33] to-[#FFCA53] bg-clip-text text-transparent">Farming Tasks & Reminders</h2>
             <p className="text-xl text-muted-foreground">
               Stay organized with your daily farming activities
             </p>

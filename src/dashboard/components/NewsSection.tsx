@@ -111,7 +111,7 @@ const NewsSection = () => {
     <section id="news" className="py-20 bg-gradient-to-br from-background to-farm-primary/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 brand-gradient">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-[#369042] via-[#a1cc33] to-[#FFCA53] bg-clip-text text-transparent">
             News & Events
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

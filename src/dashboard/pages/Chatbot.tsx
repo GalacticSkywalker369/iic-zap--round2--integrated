@@ -55,7 +55,7 @@ const ChatbotPage: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const apiBase = ""; // same origin; when using vercel dev this will work
+      const apiBase = (import.meta as any)?.env?.VITE_API_BASE || ""; // same-origin by default; set VITE_API_BASE for external API host
       const res = await fetch(`${apiBase}/api/gemini`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

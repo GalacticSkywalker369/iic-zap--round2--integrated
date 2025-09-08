@@ -28,7 +28,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-12 animate-slide-up">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 hero-gradient animate-pulse-glow">
+            <h1 className="text-6xl md:text-8xl font-extrabold mb-6 bg-gradient-to-r from-[#369042] via-[#a1cc33] to-[#FFCA53] bg-clip-text text-transparent tracking-tight animate-pulse-glow">
               FarmAssist
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
