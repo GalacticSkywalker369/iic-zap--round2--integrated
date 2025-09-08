@@ -38,7 +38,7 @@ const HeroSection = () => {
 
           <div className="max-w-2xl mx-auto mb-12 animate-slide-up" style={{animationDelay: '0.2s'}}>
             <div className="relative">
-              <div className="feature-card p-8 shadow-elegant">
+              <div className="feature-card p-8 shadow-elegant border border-primary/20 rounded-2xl">
                 <div className="flex items-center gap-3 mb-4">
                   <MessageCircle className="h-6 w-6 text-primary" />
                   <h3 className="text-lg font-semibold">Ask FarmAssist Anything</h3>
@@ -71,7 +71,7 @@ const HeroSection = () => {
                 <button
                   key={index}
                   onClick={() => handleChatSubmit(bubble)}
-                  className="chat-bubble text-sm"
+                  className="chat-bubble text-sm border border-primary/30 bg-background/60"
                   style={{animationDelay: `${0.1 * index}s`}}
                 >
                   {bubble}

@@ -86,7 +86,7 @@ const BlogSection = () => {
           {blogPosts.map((post, index) => (
             <article
               key={post.id}
-              className="feature-card shadow-elegant hover:shadow-2xl cursor-pointer group animate-slide-up"
+              className="feature-card shadow-elegant hover:shadow-2xl cursor-pointer group animate-slide-up border border-border rounded-2xl"
               style={{animationDelay: `${0.1 * index}s`}}
             >
               <div className="flex items-start gap-4 mb-4">

@@ -10,6 +10,8 @@ import MarketPage from "./marketguide/components/market-page";
 import NotFound from "./pages/NotFound";
 import LoginPage from "./login/app/page.tsx"; 
 import GovernmentSchemesPage from "./govscheme/app/page.tsx";
+import PlantHealthApp from "./plant health/app/page";
+import { MachineryEquipmentPage } from "./machineyEquipment/components/machiney-equipment-page";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/chatbot" element={<ChatbotPage />} />
           <Route path="/market" element={<MarketPage />} />
           <Route path="/schemes" element={<GovernmentSchemesPage />} />
+          <Route path="/plant-health" element={<PlantHealthApp />} />
+          <Route path="/machinery" element={<MachineryEquipmentPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -33,7 +33,7 @@ const CalendarMapSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="feature-card shadow-elegant">
+          <div className="feature-card shadow-elegant border border-border rounded-2xl">
             <div className="flex items-center gap-3 mb-6">
               <Calendar className="h-6 w-6 text-primary" />
               <h3 className="text-2xl font-bold">Farming Calendar</h3>
@@ -72,7 +72,7 @@ const CalendarMapSection = () => {
               <h4 className="font-semibold mb-4">Upcoming Activities</h4>
               <div className="space-y-3">
                 {calendarEvents.slice(0, 3).map((event, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover-lift">
+                  <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover-lift border border-border">
                     <div className={`w-3 h-3 rounded-full ${event.color}`}></div>
                     <div className="flex-1">
                       <div className="font-medium">{event.title}</div>
@@ -87,13 +87,13 @@ const CalendarMapSection = () => {
             </div>
           </div>
 
-          <div className="feature-card shadow-elegant">
+          <div className="feature-card shadow-elegant border border-border rounded-2xl">
             <div className="flex items-center gap-3 mb-6">
               <MapPin className="h-6 w-6 text-primary" />
               <h3 className="text-2xl font-bold">Regional Crop Map</h3>
             </div>
 
-            <div className="relative h-80 bg-gradient-to-br from-farm-light/20 to-farm-secondary/20 rounded-xl p-6 mb-6">
+            <div className="relative h-80 bg-gradient-to-br from-farm-light/20 to-farm-secondary/20 rounded-xl p-6 mb-6 border border-border">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-6xl opacity-20">🗺️</div>
               </div>
@@ -115,7 +115,7 @@ const CalendarMapSection = () => {
               
               <div className="space-y-3">
                 {regionCrops.filter(crop => crop.region === 'Punjab').map((crop, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+                  <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border">
                     <div className="flex items-center gap-3">
                       <div 
                         className="w-4 h-4 rounded-full" 

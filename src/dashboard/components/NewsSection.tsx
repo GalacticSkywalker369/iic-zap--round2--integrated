@@ -126,7 +126,7 @@ const NewsSection = () => {
           </h3>
           <div className="space-y-4">
             {alerts.map((alert) => (
-              <Alert key={alert.id} className="border-orange-200 bg-orange-50/50 animate-pulse-glow">
+              <Alert key={alert.id} className="border-orange-200 bg-orange-50/50 animate-pulse-glow border rounded-xl">
                 <AlertTriangle className="h-4 w-4 text-orange-600" />
                 <AlertDescription>
                   <div className="flex justify-between items-start">
@@ -151,7 +151,7 @@ const NewsSection = () => {
           {newsItems.map((news, index) => (
             <article
               key={news.id}
-              className="feature-card shadow-elegant hover:shadow-2xl cursor-pointer group animate-slide-up"
+              className="feature-card shadow-elegant hover:shadow-2xl cursor-pointer group animate-slide-up border border-border rounded-2xl"
               style={{animationDelay: `${0.1 * index}s`}}
             >
               <div className="relative h-48 mb-4 overflow-hidden rounded-xl">

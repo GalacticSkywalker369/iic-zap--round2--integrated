@@ -4,10 +4,10 @@ import placeholderImage from '@/public/placeholder.svg';
 const FeatureBlocks = () => {
   const features = [
     {
-      title: 'Plants & Crops',
+      title: 'Plant Health',
       subtitle: 'Comprehensive crop information and guidance',
       image: placeholderImage,
-      url: '/plants'
+      url: '/plant-health'
     },
     {
       title: 'Market Guide',
@@ -16,10 +16,10 @@ const FeatureBlocks = () => {
       url: '/market'
     },
     {
-      title: 'Resources',
+      title: 'Machinery & Resources',
       subtitle: 'Agricultural tools and equipment guide',
       image: placeholderImage,
-      url: '/resources'
+      url: '/machinery'
     },
     {
       title: 'Government Schemes',
@@ -79,7 +79,7 @@ const FeatureBlocks = () => {
             <div
               key={index}
               onClick={() => handleFeatureClick(feature.url)}
-              className="feature-card cursor-pointer group overflow-hidden animate-slide-up"
+              className="feature-card cursor-pointer group overflow-hidden animate-slide-up border border-border hover:border-primary/30 rounded-2xl"
               style={{animationDelay: `${0.1 * index}s`}}
             >
               <div className="relative h-48 mb-4 overflow-hidden rounded-xl">
