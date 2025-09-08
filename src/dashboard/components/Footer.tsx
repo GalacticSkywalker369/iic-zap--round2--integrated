@@ -38,7 +38,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-farm-primary to-farm-secondary text-white">
+    <footer className="bg-gradient-to-br from-green-600 via-green-500 to-emerald-600 text-white relative overflow-hidden">
+      {/* Green gradient banner overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-green-500/30 to-emerald-500/20"></div>
+      <div className="relative z-10">
       <div className="container mx-auto px-4">
         <div className="py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
@@ -141,6 +144,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );
