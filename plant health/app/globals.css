@@ -1,0 +1,191 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match agricultural/plant health theme */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.35 0.01 258.34);
+  --card: oklch(0.97 0.005 258.34);
+  --card-foreground: oklch(0.35 0.01 258.34);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.35 0.01 258.34);
+  --primary: oklch(0.45 0.15 160);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.55 0.12 160);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.97 0.005 258.34);
+  --muted-foreground: oklch(0.55 0.01 258.34);
+  --accent: oklch(0.55 0.12 160);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.005 258.34);
+  --input: oklch(0.98 0.005 258.34);
+  --ring: oklch(0.55 0.12 160);
+  --chart-1: oklch(0.45 0.15 160);
+  --chart-2: oklch(0.55 0.12 160);
+  --chart-3: oklch(0.65 0.1 160);
+  --chart-4: oklch(0.6 0.11 160);
+  --chart-5: oklch(0.5 0.2 220);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.97 0.005 258.34);
+  --sidebar-foreground: oklch(0.35 0.01 258.34);
+  --sidebar-primary: oklch(0.45 0.15 160);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.55 0.12 160);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.92 0.005 258.34);
+  --sidebar-ring: oklch(0.55 0.12 160);
+}
+
+.dark {
+  /* Updated dark mode colors to maintain agricultural theme */
+  --background: oklch(0.08 0.005 258.34);
+  --foreground: oklch(0.95 0.005 258.34);
+  --card: oklch(0.12 0.005 258.34);
+  --card-foreground: oklch(0.95 0.005 258.34);
+  --popover: oklch(0.12 0.005 258.34);
+  --popover-foreground: oklch(0.95 0.005 258.34);
+  --primary: oklch(0.55 0.12 160);
+  --primary-foreground: oklch(0.08 0.005 258.34);
+  --secondary: oklch(0.2 0.01 258.34);
+  --secondary-foreground: oklch(0.95 0.005 258.34);
+  --muted: oklch(0.2 0.01 258.34);
+  --muted-foreground: oklch(0.65 0.005 258.34);
+  --accent: oklch(0.2 0.01 258.34);
+  --accent-foreground: oklch(0.95 0.005 258.34);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.2 0.01 258.34);
+  --input: oklch(0.2 0.01 258.34);
+  --ring: oklch(0.55 0.12 160);
+  --chart-1: oklch(0.55 0.12 160);
+  --chart-2: oklch(0.65 0.1 160);
+  --chart-3: oklch(0.75 0.08 160);
+  --chart-4: oklch(0.6 0.11 160);
+  --chart-5: oklch(0.6 0.2 220);
+  --sidebar: oklch(0.12 0.005 258.34);
+  --sidebar-foreground: oklch(0.95 0.005 258.34);
+  --sidebar-primary: oklch(0.55 0.12 160);
+  --sidebar-primary-foreground: oklch(0.08 0.005 258.34);
+  --sidebar-accent: oklch(0.2 0.01 258.34);
+  --sidebar-accent-foreground: oklch(0.95 0.005 258.34);
+  --sidebar-border: oklch(0.2 0.01 258.34);
+  --sidebar-ring: oklch(0.55 0.12 160);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .brand-green-primary {
+    color: #369042;
+  }
+  .brand-green-secondary {
+    color: #a1cc33;
+  }
+  .brand-yellow {
+    color: #ffca53;
+  }
+  .brand-light-green {
+    color: #d9e5b3;
+  }
+  .brand-light-yellow {
+    color: #f9fb80;
+  }
+
+  .bg-brand-green-primary {
+    background-color: #369042;
+  }
+  .bg-brand-green-secondary {
+    background-color: #a1cc33;
+  }
+  .bg-brand-yellow {
+    background-color: #ffca53;
+  }
+  .bg-brand-light-green {
+    background-color: #d9e5b3;
+  }
+  .bg-brand-light-yellow {
+    background-color: #f9fb80;
+  }
+
+  .border-brand-green-primary {
+    border-color: #369042;
+  }
+  .border-brand-green-secondary {
+    border-color: #a1cc33;
+  }
+  .border-brand-yellow {
+    border-color: #ffca53;
+  }
+
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(54, 144, 66, 0.1), 0 10px 10px -5px rgba(54, 144, 66, 0.04);
+  }
+
+  .gradient-brand {
+    background: linear-gradient(135deg, #369042 0%, #a1cc33 50%, #ffca53 100%);
+  }
+
+  .gradient-brand-text {
+    background: linear-gradient(135deg, #369042 0%, #a1cc33 50%, #ffca53 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
