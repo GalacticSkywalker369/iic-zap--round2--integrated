@@ -1,7 +1,7 @@
 // Vercel Serverless Function: /api/gemini
-// Uses Gemini REST API to generate answers
+// Uses official Google Generative AI SDK (gemini-pro) and GEMINI_API_KEY
 
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 async function readJsonBody(req) {
   return new Promise((resolve, reject) => {
@@ -20,7 +20,16 @@ async function readJsonBody(req) {
   });
 }
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
+  if (req.method === "OPTIONS") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.statusCode = 204;
+    res.end();
+    return;
+  }
+
   if (req.method !== "POST") {
     res.statusCode = 405;
     res.setHeader("Content-Type", "application/json");
@@ -28,15 +37,12 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    res.statusCode = 500;
-    res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify({ error: "GEMINI_API_KEY is not configured" }));
-    return;
-  }
-
   try {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      throw new Error("GEMINI_API_KEY is not configured");
+    }
+
     const body = await readJsonBody(req);
     const userQuery = String(body.query || "").trim();
     if (!userQuery) {
@@ -49,37 +55,14 @@ module.exports = async function handler(req, res) {
     const systemPreamble =
       "You are an agricultural assistant helping Indian farmers with actionable, concise answers. Avoid hallucinations; say you don't know when unsure. Provide steps, numbers, and safety tips where relevant.";
 
-    const resp = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          { role: "user", parts: [{ text: `${systemPreamble}\n\nQuestion: ${userQuery}` }] },
-        ],
-        generationConfig: {
-          temperature: 0.4,
-          topP: 0.95,
-          maxOutputTokens: 512,
-        },
-        safetySettings: [
-          { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" },
-        ],
-      }),
-    });
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-    if (!resp.ok) {
-      const text = await resp.text();
-      res.statusCode = 502;
-      res.setHeader("Content-Type", "application/json");
-      res.end(JSON.stringify({ error: "Upstream error", details: text }));
-      return;
-    }
+    const result = await model.generateContent(`${systemPreamble}\n\nQuestion: ${userQuery}`);
+    const response = await result.response;
+    const text = (response?.text?.() || "").trim();
+    const answer = text || "I couldn't generate a response.";
 
-    const data = await resp.json();
-    const answer =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text || "I couldn't generate a response.";
-
-    // Basic CORS for local dev
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -87,10 +70,11 @@ module.exports = async function handler(req, res) {
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify({ answer }));
   } catch (e) {
+    console.error("/api/gemini error:", e);
     res.statusCode = 500;
     res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify({ error: "Server error", details: String(e) }));
+    res.end(JSON.stringify({ error: "Server error", details: String(e?.message || e) }));
   }
-};
+}
 
 
