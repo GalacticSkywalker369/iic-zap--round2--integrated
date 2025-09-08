@@ -44,7 +44,7 @@ const indianLanguages = [
 
 const translations = {
   en: {
-    title: "Farm Sarathi",
+    title: "FarmAssist",
     loginTitle: "Login To Your Account",
     username: "Username",
     usernameTab: "Username",
@@ -67,7 +67,7 @@ const translations = {
     backToHome: "Back To Home",
   },
   hi: {
-    title: "फार्म सारथी",
+    title: "फ़ार्म असिस्ट ",
     loginTitle: "अपने खाते में लॉगिन करें",
     username: "उपयोगकर्ता नाम",
     usernameTab: "उपयोगकर्ता नाम",
