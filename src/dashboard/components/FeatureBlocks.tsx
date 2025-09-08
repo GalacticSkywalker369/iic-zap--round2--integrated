@@ -53,7 +53,12 @@ const FeatureBlocks = () => {
   ];
 
   const handleFeatureClick = (url: string) => {
-    window.open(url, '_blank');
+    // navigate within app for internal routes
+    if (url.startsWith('/')) {
+      window.location.href = url;
+    } else {
+      window.open(url, '_blank');
+    }
   };
 
   return (
