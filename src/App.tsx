@@ -8,6 +8,7 @@ import DashboardIndex from "./dashboard/pages/Index";
 import MarketPage from "./marketguide/components/market-page";
 import NotFound from "./pages/NotFound";
 import LoginPage from "./login/app/page.tsx"; 
+import GovernmentSchemesPage from "./govscheme/app/page.tsx";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/login" element={<LoginPage/>} /> 
           <Route path="/dashboard" element={<DashboardIndex />} />
           <Route path="/market" element={<MarketPage />} />
+          <Route path="/schemes" element={<GovernmentSchemesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

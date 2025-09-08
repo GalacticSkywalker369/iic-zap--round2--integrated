@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -156,6 +157,7 @@ const translations = {
 }
 
 export default function GovernmentSchemesPage() {
+  const navigate = useNavigate()
   const [selectedLanguage, setSelectedLanguage] = useState("English")
   const [activeSection, setActiveSection] = useState("")
   const [subsidyAmount, setSubsidyAmount] = useState(0)
@@ -428,7 +430,7 @@ export default function GovernmentSchemesPage() {
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" className="animate-slide-in-left">
+            <Button variant="ghost" size="sm" className="animate-slide-in-left" onClick={() => navigate('/dashboard')}>
               <ArrowLeft className="h-4 w-4 mr-2" />
               {t.backToDashboard}
             </Button>
