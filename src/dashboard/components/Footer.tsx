@@ -38,9 +38,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-green-600 via-green-500 to-emerald-600 text-white relative overflow-hidden">
-      {/* Green gradient banner overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-green-500/30 to-emerald-500/20"></div>
+    <footer className="bg-gradient-to-br from-[#369042] via-[#a1cc33] to-[#FFCA53] text-white relative overflow-hidden">
+      {/* Gradient banner overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#369042]/20 via-[#a1cc33]/30 to-[#FFCA53]/20"></div>
       <div className="relative z-10">
       <div className="container mx-auto px-4">
         <div className="py-16">
@@ -64,10 +64,6 @@ const Footer = () => {
                 <div className="flex items-center gap-3 text-farm-light">
                   <Phone className="h-5 w-5" />
                   <span>+91 1800-FARM-HELP</span>
-                </div>
-                <div className="flex items-center gap-3 text-farm-light">
-                  <MapPin className="h-5 w-5" />
-                  <span>Agricultural Innovation Hub, New Delhi</span>
                 </div>
               </div>
 
