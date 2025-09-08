@@ -63,7 +63,7 @@ export function VisionMissionSection({ selectedLanguage }: VisionMissionSectionP
           },
           impact: {
             title: 'Our Impact',
-            content: 'Over 50,000+ farmers have benefited from our services, resulting in an average income increase of 35%.'
+            content: 'We aim for farmers to benefit from our services, to adlso result in an average income increase of >35% as per research data .'
           }
         };
     }
