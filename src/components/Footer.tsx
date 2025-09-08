@@ -197,7 +197,7 @@ export function Footer({ selectedLanguage }: FooterProps) {
 
             <div className="group">
               <h4 className="font-bold text-2xl gradient-text mb-6">
-                {selectedLanguage === 'hi' ? 'कृषि सलाहकार' : 'FarmAssist'}
+                {selectedLanguage === 'hi' ? 'फ़ार्म असिस्ट ' : 'FarmAssist'}
               </h4>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 {selectedLanguage === 'hi' 
