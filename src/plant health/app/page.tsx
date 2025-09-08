@@ -88,43 +88,65 @@ export default function PlantHealthApp() {
     },
   ])
   const [inputValue, setInputValue] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSendMessage = (text: string) => {
+  const handleSendMessage = async (text: string) => {
     if (!text.trim()) return
 
     const userMessage: Message = {
-      id: messages.length + 1,
-      text: text,
+      id: Date.now(),
+      text,
       isUser: true,
       timestamp: new Date(),
     }
 
     setMessages((prev) => [...prev, userMessage])
+    setInputValue("")
+    setIsLoading(true)
 
-    // Generate bot response
-    setTimeout(() => {
-      const lowerText = text.toLowerCase()
-      let response = mockResponses.default
+    try {
+      const res = await fetch("/api/gemini", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: text }),
+      })
 
-      // Check for keywords in the message
-      for (const [key, value] of Object.entries(mockResponses)) {
-        if (key !== "default" && lowerText.includes(key)) {
-          response = value
-          break
+      let answer = ""
+      if (res.ok) {
+        const data = await res.json()
+        answer = String(data?.answer || "").trim()
+      }
+
+      if (!answer) {
+        // Fallback to simple local responses if API fails or is empty
+        const lowerText = text.toLowerCase()
+        answer = mockResponses.default
+        for (const [key, value] of Object.entries(mockResponses)) {
+          if (key !== "default" && lowerText.includes(key)) {
+            answer = value
+            break
+          }
         }
       }
 
       const botMessage: Message = {
-        id: messages.length + 2,
-        text: response,
+        id: Date.now() + 1,
+        text: answer,
         isUser: false,
         timestamp: new Date(),
       }
-
       setMessages((prev) => [...prev, botMessage])
-    }, 1000)
-
-    setInputValue("")
+    } catch (e) {
+      const botMessage: Message = {
+        id: Date.now() + 2,
+        text: "Sorry, I couldn't reach the assistant right now. Please try again.",
+        isUser: false,
+        timestamp: new Date(),
+      }
+      setMessages((prev) => [...prev, botMessage])
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleQuickChat = (query: string) => {
@@ -183,6 +205,13 @@ export default function PlantHealthApp() {
                       </div>
                     </div>
                   ))}
+                  {isLoading && (
+                    <div className="flex justify-start">
+                      <div className="max-w-[80%] rounded-xl px-4 py-3 shadow-md bg-white border border-brand-green-primary/20 text-gray-800">
+                        <p className="text-sm leading-relaxed">Thinking…</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </ScrollArea>
 
