@@ -18,7 +18,7 @@ export function HeroSection({ selectedLanguage }: HeroSectionProps) {
         };
       default:
         return {
-          title: 'AgriAdvisor',
+          title: 'FarmAssist',
           subtitle: 'Empowering Farmers with Technology',
           description: 'Get AI-powered insights and expert guidance to maximize your crop yields',
           cta: 'Get Started'

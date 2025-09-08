@@ -197,7 +197,7 @@ export function Footer({ selectedLanguage }: FooterProps) {
 
             <div className="group">
               <h4 className="font-bold text-2xl gradient-text mb-6">
-                {selectedLanguage === 'hi' ? 'कृषि सलाहकार' : 'AgriAdvisor'}
+                {selectedLanguage === 'hi' ? 'कृषि सलाहकार' : 'FarmAssist'}
               </h4>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 {selectedLanguage === 'hi' 
@@ -207,7 +207,7 @@ export function Footer({ selectedLanguage }: FooterProps) {
               </p>
               <div className="bg-gradient-to-r from-golden-yellow/10 to-lime-green/10 p-4 rounded-lg border border-sunshine-yellow/20">
                 <div className="text-sm font-medium">
-                  © 2024 AgriAdvisor. {selectedLanguage === 'hi' ? 'सभी अधिकार सुरक्षित।' : 'All rights reserved.'}
+                  © 2025 FarmAssist. {selectedLanguage === 'hi' ? 'सभी अधिकार सुरक्षित।' : 'All rights reserved.'}
                 </div>
               </div>
             </div>

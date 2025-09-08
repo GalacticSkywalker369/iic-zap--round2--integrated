@@ -30,7 +30,7 @@ export function VisionMissionSection({ selectedLanguage }: VisionMissionSectionP
           },
           about: {
             title: 'हमारे बारे में',
-            content: 'AgriAdvisor एक अग्रणी कृषि तकनीक प्लेटफॉर्म है जो किसानों को आर्टिफिशियल इंटेलिजेंस और मशीन लर्निंग की शक्ति से जोड़ता है। 2024 में स्थापित, हमने हजारों किसानों की मदद की है।'
+            content: 'FarmAssist एक अग्रणी कृषि तकनीक प्लेटफॉर्म है जो किसानों को आर्टिफिशियल इंटेलिजेंस और मशीन लर्निंग की शक्ति से जोड़ता है। 2024 में स्थापित, हमने हजारों किसानों की मदद की है।'
           },
           impact: {
             title: 'हमारा प्रभाव',
@@ -59,7 +59,7 @@ export function VisionMissionSection({ selectedLanguage }: VisionMissionSectionP
           },
           about: {
             title: 'About Us',
-            content: 'AgriAdvisor is a leading agricultural technology platform that connects farmers with the power of Artificial Intelligence and Machine Learning. Established in 2024, we have helped thousands of farmers.'
+            content: 'FarmAssist is a leading agricultural technology platform that connects farmers with the power of Artificial Intelligence and Machine Learning. Established in 2024, we have helped thousands of farmers.'
           },
           impact: {
             title: 'Our Impact',

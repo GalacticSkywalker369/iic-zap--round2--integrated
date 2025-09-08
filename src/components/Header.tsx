@@ -35,7 +35,7 @@ export function Header({ selectedLanguage, onLanguageChange }: HeaderProps) {
               onLanguageChange={onLanguageChange}
             />
             <div className="text-xl font-bold text-primary">
-              {selectedLanguage === 'hi' ? 'कृषि सलाहकार' : 'AgriAdvisor'}
+              {selectedLanguage === 'hi' ? 'कृषि सलाहकार' : 'FarmAssist'}
             </div>
           </div>
 
