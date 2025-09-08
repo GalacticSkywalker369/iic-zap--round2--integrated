@@ -1,53 +1,54 @@
 import React from 'react';
+import placeholderImage from '@/public/placeholder.svg';
 
 const FeatureBlocks = () => {
   const features = [
     {
       title: 'Plants & Crops',
       subtitle: 'Comprehensive crop information and guidance',
-      image: '/placeholder.svg',
+      image: placeholderImage,
       url: '/plants'
     },
     {
       title: 'Market Guide',
       subtitle: 'Live market prices and selling opportunities',
-      image: '/placeholder.svg',
+      image: placeholderImage,
       url: '/market'
     },
     {
       title: 'Resources',
       subtitle: 'Agricultural tools and equipment guide',
-      image: '/placeholder.svg',
+      image: placeholderImage,
       url: '/resources'
     },
     {
       title: 'Government Schemes',
       subtitle: 'Available subsidies and support programs',
-      image: '/placeholder.svg',
+      image: placeholderImage,
       url: '/schemes'
     },
     {
       title: 'Calendar & Reminders',
       subtitle: 'Smart farming schedule management',
-      image: '/placeholder.svg',
+      image: placeholderImage,
       url: '/calendar'
     },
     {
       title: 'Expert Support',
       subtitle: '24/7 agricultural expert assistance',
-      image: '/placeholder.svg',
+      image: placeholderImage,
       url: '/support'
     },
     {
       title: 'Plant Disease',
       subtitle: 'Disease identification and treatment',
-      image: '/placeholder.svg',
+      image: placeholderImage,
       url: '/disease'
     },
     {
       title: 'Monthly Guidance',
       subtitle: 'Season-specific farming advice',
-      image: '/placeholder.svg',
+      image: placeholderImage,
       url: '/monthly'
     }
   ];

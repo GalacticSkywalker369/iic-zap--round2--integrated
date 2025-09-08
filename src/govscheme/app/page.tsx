@@ -32,6 +32,13 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react"
+import pmKisanImg from "@/govscheme/public/pm-kisan-scheme.jpg"
+import fasalBimaImg from "@/govscheme/public/fasal-bima-yojana.jpg"
+import kccImg from "@/govscheme/public/farmer-with-credit-card.jpg"
+import happyFarmerImg from "@/govscheme/public/happy-indian-farmer.jpg"
+import femaleFarmerImg from "@/govscheme/public/female-indian-farmer.jpg"
+import storageFacilityImg from "@/govscheme/public/farmer-with-storage-facility.jpg"
+import placeholderImage from "@/public/placeholder.svg"
 
 const translations = {
   English: {
@@ -203,7 +210,7 @@ export default function GovernmentSchemesPage() {
       description: "Direct income support of ₹6,000 per year to small and marginal farmers",
       department: "Ministry of Agriculture & Farmers Welfare",
       deadline: "Ongoing Registration",
-      image: "/pm-kisan-scheme.jpg",
+      image: pmKisanImg,
       applyLink: "https://pmkisan.gov.in/",
     },
     {
@@ -211,7 +218,7 @@ export default function GovernmentSchemesPage() {
       description: "Comprehensive crop insurance scheme covering pre-sowing to post-harvest losses",
       department: "Ministry of Agriculture & Farmers Welfare",
       deadline: "Seasonal Registration",
-      image: "/fasal-bima-yojana.jpg",
+      image: fasalBimaImg,
       applyLink: "https://pmfby.gov.in/",
     },
     {
@@ -219,7 +226,7 @@ export default function GovernmentSchemesPage() {
       description: "Easy access to credit for farmers at subsidized interest rates up to ₹3 lakh",
       department: "Department of Financial Services",
       deadline: "Ongoing",
-      image: "/farmer-with-credit-card.jpg",
+      image: kccImg,
       applyLink: "https://www.india.gov.in/spotlight/kisan-credit-card-kcc-scheme",
     },
   ]
@@ -367,19 +374,19 @@ export default function GovernmentSchemesPage() {
       name: "Ramesh Kumar",
       location: "Punjab",
       story: "Increased income by 300% using PMKSY drip irrigation subsidy and reduced water usage by 40%",
-      image: "/happy-indian-farmer.jpg",
+      image: happyFarmerImg,
     },
     {
       name: "Sunita Devi",
       location: "Maharashtra",
       story: "Started organic farming with PKVY scheme, now earning ₹2 lakh annually from 2 acres",
-      image: "/female-indian-farmer.jpg",
+      image: femaleFarmerImg,
     },
     {
       name: "Arjun Singh",
       location: "Rajasthan",
       story: "Built cold storage facility with 35% subsidy, serving 200+ farmers in the region",
-      image: "/farmer-with-storage-facility.jpg",
+      image: storageFacilityImg,
     },
   ]
 
@@ -506,7 +513,7 @@ export default function GovernmentSchemesPage() {
               >
                 <div className="relative">
                   <img
-                    src={scheme.image || "/placeholder.svg"}
+                    src={scheme.image || placeholderImage}
                     alt={scheme.title}
                     className="w-full h-48 object-cover"
                   />
@@ -772,7 +779,7 @@ export default function GovernmentSchemesPage() {
               >
                 <CardHeader>
                   <img
-                    src={story.image || "/placeholder.svg"}
+                    src={story.image || placeholderImage}
                     alt={story.name}
                     className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
                   />
