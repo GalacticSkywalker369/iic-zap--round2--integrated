@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Farmer Advisory Website Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Core Colors - Agriculture Theme */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    
+    /* Brand Colors - Enhanced with more yellows and greens */
+    --primary: 129 65% 28%; /* #369042 */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 75 51% 51%; /* #a1cc33 */
+    --accent-yellow: 45 100% 66%; /* #ffca53 */
+    --nature-green: 75 39% 74%; /* #D9E5B3 */
+    --bright-yellow: 61 89% 75%; /* #F9FB80 */
+    
+    /* Additional Yellow & Green Variants */
+    --golden-yellow: 45 95% 58%; /* Golden yellow */
+    --lime-green: 84 75% 55%; /* Vibrant lime green */
+    --forest-green: 140 55% 35%; /* Deep forest green */
+    --sunshine-yellow: 54 100% 72%; /* Bright sunshine */
+    --emerald-green: 145 63% 49%; /* Rich emerald */
+    --honey-yellow: 42 88% 65%; /* Warm honey tone */
+    
+    /* Semantic Colors */
+    --secondary: 75 39% 74%; /* nature-green */
+    --secondary-foreground: 129 65% 28%;
+    --muted: 75 39% 92%;
+    --muted-foreground: 129 65% 28%;
+    --accent: 45 100% 66%; /* accent-yellow */
+    --accent-foreground: 0 0% 0%;
+    
+    /* System Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 75 39% 85%;
+    --input: 75 39% 90%;
+    --ring: 129 65% 28%;
+    --radius: 0.75rem;
+    
+    /* Gradients - Enhanced with fancy yellow-green combinations */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--accent-yellow)) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--nature-green)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--bright-yellow) / 0.1) 100%);
+    --gradient-yellow-green: linear-gradient(135deg, hsl(var(--sunshine-yellow)) 0%, hsl(var(--lime-green)) 100%);
+    --gradient-forest-gold: linear-gradient(45deg, hsl(var(--forest-green)) 0%, hsl(var(--golden-yellow)) 100%); 
+    --gradient-emerald-honey: linear-gradient(120deg, hsl(var(--emerald-green)) 0%, hsl(var(--honey-yellow)) 100%);
+    --gradient-fancy: linear-gradient(135deg, hsl(var(--golden-yellow) / 0.2) 0%, hsl(var(--lime-green) / 0.2) 50%, hsl(var(--sunshine-yellow) / 0.2) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 8px 30px hsl(var(--primary) / 0.15);
+    --shadow-strong: 0 12px 40px hsl(var(--primary) / 0.2);
+    --shadow-glow: 0 0 30px hsl(var(--accent-yellow) / 0.3);
+    
+    /* Animation Durations */
+    --transition-fast: 0.2s ease-out;
+    --transition-medium: 0.3s ease-out;
+    --transition-slow: 0.5s ease-out;
+  }
+  
+  .dark {
+    --background: 129 65% 4%;
+    --foreground: 0 0% 95%;
+    --primary: 75 51% 60%;
+    --primary-foreground: 129 65% 4%;
+    --card: 129 65% 6%;
+    --card-foreground: 0 0% 95%;
+    --border: 129 30% 15%;
+    --input: 129 30% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  /* Hero Gradient Text */
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Floating Bubbles */
+  .bubble {
+    @apply fixed bottom-6 right-6 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl cursor-pointer z-50;
+    background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-lg;
+  }
+  
+  /* Scroll Animations */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  
+  .fade-in-up.animate {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* Feature Block Styles */
+  .feature-block {
+    @apply p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .feature-block:hover {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer utilities {
+  /* Animation Keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--accent-yellow) / 0.4); }
+    50% { box-shadow: 0 0 40px hsl(var(--accent-yellow) / 0.8); }
+  }
+  
+  @keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out forwards;
+  }
+}
