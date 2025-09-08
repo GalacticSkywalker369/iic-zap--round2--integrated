@@ -40,10 +40,10 @@ const FeatureBlocks = () => {
       url: '/support'
     },
     {
-      title: 'Plant Disease',
-      subtitle: 'Disease identification and treatment',
+      title: 'Crop Database',
+      subtitle: 'Comprehensive crop information and guidance',
       image: placeholderImage,
-      url: '/disease'
+      url: '/crop-database'
     },
     {
       title: 'Monthly Guidance',
