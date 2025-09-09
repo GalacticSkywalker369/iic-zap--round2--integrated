@@ -1,30 +1,37 @@
 import React from 'react';
 import placeholderImage from '@/public/placeholder.svg';
+import plantHealthImage from '@/dashboard/public/planthealth.png';
+import marketImage from '@/dashboard/public/market.png';
+import machineryImage from '@/dashboard/public/machinery.png';
+import schemesImage from '@/dashboard/public/schemes.png';
+import expertsImage from '@/dashboard/public/experts.png';
+import cropsImage from '@/dashboard/public/crops.png';
+import monthlyImage from '@/dashboard/public/monthly.png';
 
 const FeatureBlocks = () => {
   const features = [
     {
       title: 'Plant Health',
       subtitle: 'Comprehensive crop information and guidance',
-      image: placeholderImage,
+      image: plantHealthImage,
       url: '/plant-health'
     },
     {
       title: 'Market Guide',
       subtitle: 'Live market prices and selling opportunities',
-      image: placeholderImage,
+      image: marketImage,
       url: '/market'
     },
     {
       title: 'Machinery & Resources',
       subtitle: 'Agricultural tools and equipment guide',
-      image: placeholderImage,
+      image: machineryImage,
       url: '/machinery'
     },
     {
       title: 'Government Schemes',
       subtitle: 'Available subsidies and support programs',
-      image: placeholderImage,
+      image: schemesImage,
       url: '/schemes'
     },
     {
@@ -36,19 +43,19 @@ const FeatureBlocks = () => {
     {
       title: 'Expert Support',
       subtitle: '24/7 agricultural expert assistance',
-      image: placeholderImage,
+      image: expertsImage,
       url: '/support'
     },
     {
       title: 'Crop Database',
       subtitle: 'Comprehensive crop information and guidance',
-      image: placeholderImage,
+      image: cropsImage,
       url: '/crop-database'
     },
     {
       title: 'Monthly Guidance',
       subtitle: 'Season-specific farming advice',
-      image: placeholderImage,
+      image: monthlyImage,
       url: '/monthly'
     }
   ];
