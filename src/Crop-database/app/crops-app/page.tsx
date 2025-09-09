@@ -129,42 +129,73 @@ export default function CropsApp() {
   const [inputValue, setInputValue] = useState("")
   const [isRecording, setIsRecording] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSendMessage = (text: string, type: "text" | "image" | "audio" = "text") => {
+  const handleSendMessage = async (text: string, type: "text" | "image" | "audio" = "text") => {
     if (!text.trim()) return
 
     const userMessage: Message = {
       id: messages.length + 1,
-      text: text,
+      text,
       isUser: true,
       timestamp: new Date(),
       type,
     }
 
     setMessages((prev) => [...prev, userMessage])
+    setInputValue("")
 
-    setTimeout(() => {
+    // Only call Gemini for text questions; keep mock for non-text demo events
+    if (type !== "text") {
+      const botMessage: Message = {
+        id: userMessage.id + 1,
+        text: mockCropResponses.default,
+        isUser: false,
+        timestamp: new Date(),
+      }
+      setMessages((prev) => [...prev, botMessage])
+      return
+    }
+
+    try {
+      setIsLoading(true)
+      const apiBase = (import.meta as any)?.env?.VITE_API_BASE || ""
+      const res = await fetch(`${apiBase}/api/gemini`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: text }),
+      })
+      if (!res.ok) {
+        const errText = await res.text().catch(() => "")
+        throw new Error(`Request failed: ${res.status} ${errText}`)
+      }
+      const data: { answer: string } = await res.json()
+      const botMessage: Message = {
+        id: userMessage.id + 1,
+        text: data.answer?.trim() || "I couldn't generate a response.",
+        isUser: false,
+        timestamp: new Date(),
+      }
+      setMessages((prev) => [...prev, botMessage])
+    } catch (e: any) {
       const lowerText = text.toLowerCase()
       let response = mockCropResponses.default
-
       for (const [key, value] of Object.entries(mockCropResponses)) {
         if (key !== "default" && lowerText.includes(key)) {
           response = value
           break
         }
       }
-
       const botMessage: Message = {
-        id: messages.length + 2,
-        text: response,
+        id: userMessage.id + 1,
+        text: `${response}\n\n(Note: Live AI response failed: ${e?.message || e})`,
         isUser: false,
         timestamp: new Date(),
       }
-
       setMessages((prev) => [...prev, botMessage])
-    }, 1000)
-
-    setInputValue("")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleQuickInfo = (query: string) => {
@@ -302,7 +333,7 @@ export default function CropsApp() {
                     }`}
                   >
                     {isRecording ? <MicOff className="h-4 w-4 mr-2" /> : <Mic className="h-4 w-4 mr-2" />}
-                    {isRecording ? "Recording..." : "Voice Input"}
+                    {isLoading ? "Thinking..." : isRecording ? "Recording..." : "Voice Input"}
                   </Button>
                 </div>
               </div>
