@@ -7,6 +7,7 @@ import schemesImage from '@/dashboard/public/schemes.png';
 import expertsImage from '@/dashboard/public/experts.png';
 import cropsImage from '@/dashboard/public/crops.png';
 import monthlyImage from '@/dashboard/public/monthly.png';
+import remindersImage from '@/dashboard/public/reminders.png';
 
 const FeatureBlocks = () => {
   const features = [
@@ -37,7 +38,7 @@ const FeatureBlocks = () => {
     {
       title: 'Calendar & Reminders',
       subtitle: 'Smart farming schedule management',
-      image: placeholderImage,
+      image: remindersImage,
       url: '/calendar'
     },
     {
