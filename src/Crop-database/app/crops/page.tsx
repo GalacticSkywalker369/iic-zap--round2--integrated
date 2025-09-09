@@ -252,7 +252,7 @@ export default function CropsPage() {
   const handleOptionClick = (optionId: string) => {
     // Navigate to specific sections - would use router in real implementation
     if (optionId === "hydroponics") {
-      window.location.href = "/hydroponics"
+      window.location.href = "/hyroponics"
     } else if (optionId === "plants") {
       window.location.href = "/plants"
     } else if (optionId === "soil") {

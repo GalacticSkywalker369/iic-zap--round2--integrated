@@ -377,7 +377,7 @@ export default function CropsApp() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card
             className="cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-xl border-2 border-transparent hover:border-[#369042]/30 bg-gradient-to-br from-[#369042]/10 to-[#a1cc33]/10"
-            onClick={() => (window.location.href = "/hydroponics")}
+            onClick={() => (window.location.href = "/hyroponics")}
           >
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
