@@ -13,6 +13,7 @@ import GovernmentSchemesPage from "./govscheme/app/page.tsx";
 import PlantHealthApp from "./plant health/app/page";
 import { MachineryEquipmentPage } from "./machineyEquipment/components/machiney-equipment-page";
 import CropsPage from "./Crop-database/app/crops/page";
+import HydroponicsPage from "./Crop-database/app/hyroponics/page";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/plant-health" element={<PlantHealthApp />} />
           <Route path="/machinery" element={<MachineryEquipmentPage />} />
           <Route path="/crop-database" element={<CropsPage />} />
+          <Route path="/hyroponics" element={<HydroponicsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
